@@ -1,14 +1,29 @@
 import React from 'react';
 import logo from '../logo.svg';
 import './SearchHeader.css';
+import { Link } from 'react-router-dom';
 
-function SearchHeader() {
+function SearchHeader(props) {
+  const { handleChange, handleSubmit, searchString } = props;
   return (
     <div className="header">
-      <img className="logo" src={logo} alt="" />
-      link to home
-      <form>
-        <input placeholder="Search" type="text" name="searchString" />
+      <a href="https://pixabay.com/">
+        <div className="title-link">
+          <img className="logo" src={logo} alt="" />
+          <h1 className="title-extension">refined search</h1>
+        </div>
+      </a>
+
+      <Link to="/">Home</Link>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="Search"
+          type="text"
+          name="searchString"
+          required
+          onChange={handleChange}
+          value={searchString}
+        />
         <select>
           <option value="all">All</option>
           <option value="editorsChoice">Editor's Choice</option>

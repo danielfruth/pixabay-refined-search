@@ -8,9 +8,3 @@
 a {
   color: inherit;
 }
-
-:root {
-  --primary: #85cb33;
-  --secondar: #a5ccc3;
-  --pale: #efffc8;
-}
