@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Main from './components/Main';
 import SearchHeader from './components/SearchHeader';
 import Selected from './components/Selected';
+import Gallery from './components/Gallery';
 
 function App() {
   const [images, setImages] = useState([]);
@@ -25,7 +25,7 @@ function App() {
     fetch(url)
       .then(response => response.json())
       .then(response => {
-        setImages(response.data);
+        setImages(response.hits);
         setSearchString('');
       })
       .catch(console.error);
@@ -48,8 +48,9 @@ function App() {
         searchString={searchString}
       />
       <Switch>
-        <Route path="/" exact component={Main} />
-        <Route path="/search-results" />
+        <Route path="/">
+          <Gallery images={images} />
+        </Route>
         <Route path="/selected/:image" />
       </Switch>
     </div>
