@@ -48,10 +48,15 @@ function App() {
         searchString={searchString}
       />
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <Gallery images={images} />
         </Route>
-        <Route path="/selected/:image" />
+        <Route
+          path="/selected/:id"
+          render={routerProps => {
+            return <Selected match={routerProps.match} images={images} />;
+          }}
+        />
       </Switch>
     </div>
   );
