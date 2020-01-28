@@ -15,7 +15,6 @@ function Gallery({ images }) {
           </Link>
         </div>
       ))}
-      {console.log(images)}
     </div>
   );
 }

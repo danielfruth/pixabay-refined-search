@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Rezland';
+  src: local('Rezland'), url(./fonts/REZ.ttf) format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;

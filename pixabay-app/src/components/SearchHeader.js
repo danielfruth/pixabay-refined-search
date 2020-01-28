@@ -4,7 +4,7 @@ import './SearchHeader.css';
 import { Link } from 'react-router-dom';
 
 function SearchHeader(props) {
-  const { handleChange, handleSubmit, searchString } = props;
+  const { handleChange, handleSubmit, searchString, filter, setFilter } = props;
   return (
     <div className="header">
       <a href="https://pixabay.com/">
@@ -14,7 +14,9 @@ function SearchHeader(props) {
         </div>
       </a>
 
-      <Link to="/">Home</Link>
+      <Link className="home-link" to="/">
+        Home
+      </Link>
       <form onSubmit={handleSubmit}>
         <input
           placeholder="Search"
@@ -24,7 +26,7 @@ function SearchHeader(props) {
           onChange={handleChange}
           value={searchString}
         />
-        <select>
+        <select value={filter} onChange={setFilter}>
           <option value="all">All</option>
           <option value="editorsChoice">Editor's Choice</option>
         </select>

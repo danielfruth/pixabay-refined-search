@@ -48,4 +48,10 @@ select {
 .title-extension {
   line-height: 70px;
   color: #333333;
+  font-family: 'Rezland';
+  font-size: 3em;
+}
+
+.home-link {
+  font-family: 'Muli', sans-serif;
 }

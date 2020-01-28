@@ -8,6 +8,7 @@ import Gallery from './components/Gallery';
 function App() {
   const [images, setImages] = useState([]);
   const [searchString, setSearchString] = useState('');
+  const [filter, setFilter] = useState('all');
   const searchOptions = {
     key: process.env.REACT_APP_PIXABAY_KEY,
     perPage: 25,
@@ -20,9 +21,10 @@ function App() {
   }, []);
 
   function getImages(searchString) {
-    const url = `${searchOptions.api}?key=${searchOptions.key}&q=${searchString}`;
+    const URL = `${searchOptions.api}?key=${searchOptions.key}&q=${searchString}`;
+    const editorsChoiceURL = `${searchOptions.api}?key=${searchOptions.key}&q=${searchString}&editors_choice=true`;
 
-    fetch(url)
+    fetch(filter === 'all' ? URL : editorsChoiceURL)
       .then(response => response.json())
       .then(response => {
         setImages(response.hits);
@@ -38,6 +40,11 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
     getImages(searchString);
+    console.log(filter);
+  }
+
+  function handleDropDown(event) {
+    setFilter(event.target.value);
   }
 
   return (
@@ -46,6 +53,8 @@ function App() {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         searchString={searchString}
+        filter={filter}
+        setFilter={handleDropDown}
       />
       <Switch>
         <Route path="/" exact>
@@ -54,7 +63,7 @@ function App() {
         <Route
           path="/selected/:id"
           render={routerProps => {
-            return <Selected match={routerProps.match} images={images} />;
+            return <Selected images={images} match={routerProps.match} />;
           }}
         />
       </Switch>
