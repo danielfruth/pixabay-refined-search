@@ -8,8 +8,14 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
+  font-family: 'Mulli', sans-serif;
 }
 
 a {
   color: inherit;
+}
+
+body,
+#root {
+  height: 100vh;
 }

@@ -40,7 +40,6 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
     getImages(searchString);
-    console.log(filter);
   }
 
   function handleDropDown(event) {
@@ -48,7 +47,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <>
       <SearchHeader
         handleChange={handleChange}
         handleSubmit={handleSubmit}
@@ -67,7 +66,7 @@ function App() {
           }}
         />
       </Switch>
-    </div>
+    </>
   );
 }
 

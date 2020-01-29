@@ -1,4 +1,5 @@
 import React from 'react';
+import './Selected.css';
 
 function Selected(props) {
   const picked = props.images.find(
@@ -7,8 +8,16 @@ function Selected(props) {
   console.log(props);
   if (picked) {
     return (
-      <div>
-        <img src={picked.largeImageURL} alt={picked.tags} />
+      <div className="selected">
+        <img
+          className="picked-image"
+          src={picked.largeImageURL}
+          alt={picked.tags}
+        />
+        <h1>Made or taken by: {picked.user}</h1>
+        <a href={picked.pageURL}>
+          Link to user's image to download from Pixabay
+        </a>
       </div>
     );
   } else {
