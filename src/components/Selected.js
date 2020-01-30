@@ -5,7 +5,6 @@ function Selected(props) {
   const picked = props.images.find(
     image => image.id.toString() === props.match.params.id
   );
-  console.log(props);
   if (picked) {
     return (
       <div className="selected">
