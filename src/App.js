@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
 import SearchHeader from './components/SearchHeader';
 import Selected from './components/Selected';
 import Gallery from './components/Gallery';
