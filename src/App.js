@@ -4,6 +4,7 @@ import SearchHeader from './components/SearchHeader';
 import Selected from './components/Selected';
 import Gallery from './components/Gallery';
 
+// Hou comment: Nice job using hooks to add state to your functional components throughout your application!
 function App() {
   const [images, setImages] = useState([]);
   const [searchString, setSearchString] = useState('');
@@ -20,9 +21,13 @@ function App() {
   }, []);
 
   function getImages(searchString) {
+    // Hou comment: instead of repeatedly accessing api and key in searchOptions, store those values in variables
+    // const api = searchOptions.api
+    // const key = searchOptions.key
     const URL = `${searchOptions.api}?key=${searchOptions.key}&q=${searchString}`;
     const editorsChoiceURL = `${searchOptions.api}?key=${searchOptions.key}&q=${searchString}&editors_choice=true`;
 
+    // Hou comment: nice job with the ternary operator below!
     fetch(filter === 'all' ? URL : editorsChoiceURL)
       .then(response => response.json())
       .then(response => {
@@ -46,6 +51,7 @@ function App() {
   }
 
   return (
+    // Hou comment: nice job using JSX fragment!
     <>
       <SearchHeader
         handleChange={handleChange}
@@ -60,6 +66,7 @@ function App() {
         </Route>
         <Route
           path="/selected/:id"
+          // Hou comment: How would you use implicit return on lines 70 - 72?
           render={routerProps => {
             return <Selected images={images} match={routerProps.match} />;
           }}
