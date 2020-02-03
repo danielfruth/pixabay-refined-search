@@ -1,7 +1,9 @@
+/* Hou comment: do you need the div selector here?*/
 div .gallery {
   margin: 0 1rem 0 1rem;
 }
 
+/* Hou comment: how can you style the image tag without using the img tag selector?*/
 .picture img {
   margin-bottom: 1rem;
   width: 100%;

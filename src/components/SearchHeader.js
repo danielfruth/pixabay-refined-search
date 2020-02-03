@@ -4,11 +4,14 @@ import './SearchHeader.css';
 import { Link } from 'react-router-dom';
 
 function SearchHeader(props) {
+  // Hou comment: nice job destructuring your props!
   const { handleChange, handleSubmit, searchString, filter, setFilter } = props;
   return (
+    // Hou comment: can we use a more semantic HTML tag for the header?
     <div className="header">
       <a href="https://pixabay.com/">
         <div className="title-link">
+          {/* Hou comment: consider adding some alt text to describe your logo */}
           <img className="logo" src={logo} alt="" />
           <h1 className="title-extension">refined search</h1>
         </div>

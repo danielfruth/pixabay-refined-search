@@ -1,3 +1,5 @@
+// Hou comment: you can probably remove this default test
+
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
